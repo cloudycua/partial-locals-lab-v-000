@@ -17,6 +17,8 @@ class Student < ActiveRecord::Base
   def self.search(query)
     if name.present?
       where('NAME like ?', "%#{query}%")
+#   if query
+#     Student.all.select {|student| student.name.downcase.include?(search)}      
     else
       self.all
     end
